@@ -1,0 +1,25 @@
+@use "../config";
+
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: config.$primary;
+  column-gap: 20px;
+  font-size: 1.5rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 3%;
+  padding-left: 3%;
+}
+
+.navLink {
+  text-decoration: none;
+  color: config.$white;
+  text-align: center;
+
+  &:hover {
+    color: darken(config.$white, 5%);
+  }
+}

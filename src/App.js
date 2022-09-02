@@ -1,7 +1,21 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NavigationBar from "./components/NavigationBar";
+import Cart from "./pages/Cart";
+import Items from "./pages/Items";
+import { ItemsContextProvider } from "./contexts/items-contexts";
+
 const App = () => {
   return (
     <div>
-      <h1>hello world</h1>
+      <ItemsContextProvider>
+        <BrowserRouter>
+          <NavigationBar />
+          <Routes>
+            <Route path="/" element={<Items />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </BrowserRouter>
+      </ItemsContextProvider>
     </div>
   );
 };
