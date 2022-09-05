@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import ItemCard from "../components/ItemCard";
 import { ItemsContext } from "../contexts/items-contexts";
+import classes from "./Items.module.scss";
 
 const Items = () => {
   const { items, setItems } = useContext(ItemsContext);
@@ -16,12 +17,15 @@ const Items = () => {
   }, [setItems]);
 
   return (
-    <div>
+    <div className={classes.itemsContainer}>
       {items.map((item) => {
         return (
-          <div key={item.id}>
-            <ItemCard />
-          </div>
+          <ItemCard
+            key={item.id}
+            itemName={item.itemName}
+            price={item.price}
+            itemId={item.id}
+          />
         );
       })}
     </div>

@@ -1,0 +1,24 @@
+@use "../config";
+
+.homeContainer {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewItemsButton {
+  font-size: 2rem;
+  background-color: config.$contrast;
+  border: none;
+  border-radius: 25px;
+  color: config.$white;
+  padding: 5px 10px 5px 10px;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken(config.$contrast, 5%);
+  }
+}

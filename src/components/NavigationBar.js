@@ -7,8 +7,8 @@ const NavigationBar = () => {
   return (
     <>
       <header className={classes.navContainer}>
-        <Link className={classes.navLink} to="/">Items</Link>
-        <Link className={classes.navLink} to="/cart">0 <FontAwesomeIcon icon={faCartShopping}/></Link>
+        <Link className={classes.navLink} to="/">Home</Link>
+        <Link className={classes.navLink} to="cart">0 <FontAwesomeIcon icon={faCartShopping}/></Link>
       </header>
     </>
   );

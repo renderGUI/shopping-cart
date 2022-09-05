@@ -1,0 +1,24 @@
+@use "../config";
+
+.itemsContainer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 25px;
+}
+
+// RESPONSIVE DESIGN - DESKTOP
+@media screen and (min-width: 1000px) {
+  .itemsContainer {
+    margin-top: 0;
+    margin-bottom: 0;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+  }
+}

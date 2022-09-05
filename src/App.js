@@ -1,7 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
+import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Items from "./pages/Items";
+import ItemDetails from "./pages/ItemDetails";
 import { ItemsContextProvider } from "./contexts/items-contexts";
 
 const App = () => {
@@ -11,7 +13,9 @@ const App = () => {
         <BrowserRouter>
           <NavigationBar />
           <Routes>
-            <Route path="/" element={<Items />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/items" element={<Items />} />
+            <Route path="/items/:itemId" element={<ItemDetails />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </BrowserRouter>

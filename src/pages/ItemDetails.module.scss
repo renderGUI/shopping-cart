@@ -1,0 +1,70 @@
+@use "../config";
+
+.detailsContainer {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailsImage {
+  font-size: 6rem;
+  color: lighten(config.$primary, 10%);
+}
+
+.detailsItem,
+.detailsDescription {
+  color: config.$black;
+}
+
+.detailsItem {
+  margin-bottom: 1px;
+  font-size: 1.5rem;
+}
+
+.detailsDescription {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-size: 1rem;
+  width: 90%;
+  text-align: center;
+}
+
+.detailsPrice {
+  color: config.$secondary;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.addToCartButton {
+  font-size: 1.125rem;
+  color: config.$white;
+  background-color: config.$contrast;
+  border: none;
+  border-radius: 25px;
+  padding: 5px 10px 5px 10px;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    background-color: darken(config.$contrast, 5%);
+    cursor: pointer;
+  }
+}
+
+// RESPONSIVE DESIGN - DESKTOP
+@media screen and (min-width: 1000px) {
+  .detailsDescription {
+    width: 40%;
+    font-size: 1.125rem;
+  }
+
+  .detailsItem,
+  .detailsPrice {
+    font-size: 2.25rem;
+  }
+
+  .addToCartButton {
+    font-size: 1.5rem;
+  }
+}
