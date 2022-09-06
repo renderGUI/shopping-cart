@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const App = () => {
   useEffect(() => {
-    console.log("hola");
+    // console.log("hola");
   }, []);
   
   return (

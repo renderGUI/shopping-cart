@@ -4,11 +4,17 @@ export const ItemsContext = createContext({});
 
 export const ItemsContextProvider = (props) => {
   const [items, setItems] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cartQuantity, setCartQuantity] = useState(
+    localStorage.getItem("cart") === null
+      ? 0
+      : JSON.parse(localStorage.getItem("cart")).length
+  );
 
   const value = {
     items,
     setItems,
+    cartQuantity,
+    setCartQuantity,
   };
 
   return (
