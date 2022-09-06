@@ -4,6 +4,7 @@ export const ItemsContext = createContext({});
 
 export const ItemsContextProvider = (props) => {
   const [items, setItems] = useState([]);
+  const [cart, setCart] = useState([]);
 
   const value = {
     items,

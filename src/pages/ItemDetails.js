@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShirt } from "@fortawesome/free-solid-svg-icons";
 import classes from "./ItemDetails.module.scss";
@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 const ItemDetails = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -19,8 +20,18 @@ const ItemDetails = () => {
   }, [itemId]);
 
   const addToCartHandler = () => {
-    console.log('e')
-  }
+    if (localStorage.getItem("cart") === null) {
+      localStorage.setItem("cart", JSON.stringify([item]));
+      navigate("/cart");
+      console.log("first item added to localstorage");
+    } else {
+      const allCartItems = JSON.parse(localStorage.getItem("cart"));
+      const updatedShoppingCart = [...allCartItems, item];
+      localStorage.setItem("cart", JSON.stringify(updatedShoppingCart));
+      navigate("/cart");
+      console.log("additional item added to localstorage");
+    }
+  };
 
   return (
     <div className={classes.detailsContainer}>
@@ -32,7 +43,11 @@ const ItemDetails = () => {
         veniam, quis nostrud exercitation.
       </p>
       <h3 className={classes.detailsPrice}>${item.price}</h3>
-      <button className={classes.addToCartButton} type="button" onClick={addToCartHandler}>
+      <button
+        className={classes.addToCartButton}
+        type="button"
+        onClick={addToCartHandler}
+      >
         Add to cart
       </button>
     </div>

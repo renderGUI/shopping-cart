@@ -1,0 +1,85 @@
+@use "../config";
+
+.cartContainer {
+  margin-top: 25px;
+}
+
+.emptyCart {
+  color: config.$contrast;
+  text-align: center;
+  font-weight: 600;
+}
+
+.continueShoppingButton,
+.checkoutButton {
+  font-size: 1.125rem;
+  color: config.$white;
+  border: none;
+  border-radius: 25px;
+  padding: 5px 10px 5px 10px;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.continueContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 2%;
+}
+
+.continueShoppingButton {
+  background-color: lighten(config.$black, 15%);
+
+  &:hover {
+    background-color: lighten(config.$black, 10%);
+    cursor: pointer;
+  }
+}
+
+.checkoutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 5%;
+}
+
+.checkoutButton {
+  background-color: config.$contrast;
+
+  &:hover {
+    background-color: darken(config.$contrast, 5%);
+    cursor: pointer;
+  }
+}
+
+.labelsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-weight: 600;
+  color: config.$secondary;
+}
+
+hr {
+  width: 90%;
+  border: 1px solid darken(#f3e8ee, 2%);
+  border-radius: 25px;
+}
+
+.totalContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 95%;
+  column-gap: 25px;
+}
+
+.totalPrice {
+  color: config.$primary;
+}
