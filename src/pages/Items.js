@@ -8,11 +8,15 @@ const Items = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        "https://items-rendergui.herokuapp.com/items"
-      );
-      const data = await response.json();
-      setItems(data);
+      try {
+        const response = await fetch(
+          "https://items-rendergui.herokuapp.com/items"
+        );
+        const data = await response.json();
+        setItems(data);
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     fetchData();

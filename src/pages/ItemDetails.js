@@ -14,11 +14,15 @@ const ItemDetails = () => {
 
   useEffect(() => {
     const fetchItem = async () => {
-      const response = await fetch(
-        `https://items-rendergui.herokuapp.com/items/${itemId}`
-      );
-      const data = await response.json();
-      setItem(data);
+      try {
+        const response = await fetch(
+          `https://items-rendergui.herokuapp.com/items/${itemId}`
+        );
+        const data = await response.json();
+        setItem(data);
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     fetchItem();
