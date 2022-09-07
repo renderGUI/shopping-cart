@@ -5,13 +5,8 @@ import Cart from "./pages/Cart";
 import Items from "./pages/Items";
 import ItemDetails from "./pages/ItemDetails";
 import { ItemsContextProvider } from "./contexts/items-contexts";
-import { useEffect } from "react";
 
 const App = () => {
-  useEffect(() => {
-    // console.log("hola");
-  }, []);
-  
   return (
     <div>
       <ItemsContextProvider>
