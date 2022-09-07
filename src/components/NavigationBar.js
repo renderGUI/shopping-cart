@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { ItemsContext } from "../contexts/items-contexts";
 
 const NavigationBar = () => {
-  const { cartQuantity } = useContext(ItemsContext);
+  const { cartItems } = useContext(ItemsContext);
 
   return (
     <>
@@ -15,7 +15,7 @@ const NavigationBar = () => {
           Home
         </Link>
         <Link className={classes.navLink} to="cart">
-          {cartQuantity} <FontAwesomeIcon icon={faCartShopping} />
+          {cartItems.length} <FontAwesomeIcon icon={faCartShopping} />
         </Link>
       </header>
     </>

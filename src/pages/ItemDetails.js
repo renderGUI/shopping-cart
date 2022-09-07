@@ -9,7 +9,7 @@ const ItemDetails = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState([]);
   const navigate = useNavigate();
-  const { setCartQuantity } = useContext(ItemsContext);
+  const { cartItems, setCartItems } = useContext(ItemsContext);
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -23,17 +23,14 @@ const ItemDetails = () => {
 
   const addToCartHandler = () => {
     if (localStorage.getItem("cart") === null) {
-      localStorage.setItem("cart", JSON.stringify([item]));
-      setCartQuantity(1);
+      setCartItems([item]);
+      localStorage.setItem("cart", JSON.stringify(cartItems));
       navigate("/cart");
-      console.log("first item added to localstorage");
     } else {
-      const allCartItems = JSON.parse(localStorage.getItem("cart"));
-      const updatedShoppingCart = [...allCartItems, item];
-      setCartQuantity(updatedShoppingCart.length);
+      const updatedShoppingCart = [...cartItems, item];
+      setCartItems(updatedShoppingCart);
       localStorage.setItem("cart", JSON.stringify(updatedShoppingCart));
       navigate("/cart");
-      console.log("additional item added to localstorage");
     }
   };
 

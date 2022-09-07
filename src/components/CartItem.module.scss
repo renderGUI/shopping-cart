@@ -1,0 +1,30 @@
+@use "../config";
+
+.cartItemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  text-align: left;
+}
+
+.itemName {
+  width: 100px;
+}
+
+.itemPrice {
+  font-weight: 600;
+}
+
+.removeButton {
+  text-align: left;
+  width: 75px;
+  border: none;
+  background-color: transparent;
+  color: #dd7777;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
