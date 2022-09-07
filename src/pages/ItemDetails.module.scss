@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+.errorMessage {
+  color: #dd7777;
+}
+
 .detailsImage {
   font-size: 6rem;
   color: lighten(config.$primary, 10%);

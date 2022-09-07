@@ -8,6 +8,7 @@ import { ItemsContext } from "../contexts/items-contexts";
 const ItemDetails = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState([]);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
   const { cartItems, setCartItems } = useContext(ItemsContext);
 
@@ -27,10 +28,17 @@ const ItemDetails = () => {
       localStorage.setItem("cart", JSON.stringify(cartItems));
       navigate("/cart");
     } else {
-      const updatedShoppingCart = [...cartItems, item];
-      setCartItems(updatedShoppingCart);
-      localStorage.setItem("cart", JSON.stringify(updatedShoppingCart));
-      navigate("/cart");
+      const onlyIds = cartItems.map((item) => {
+        return item.id;
+      });
+      if (onlyIds.includes(Number(itemId))) {
+        setError(true);
+      } else {
+        const updatedShoppingCart = [...cartItems, item];
+        setCartItems(updatedShoppingCart);
+        localStorage.setItem("cart", JSON.stringify(updatedShoppingCart));
+        navigate("/cart");
+      }
     }
   };
 
@@ -51,6 +59,7 @@ const ItemDetails = () => {
       >
         Add to cart
       </button>
+      {error && <p className={classes.errorMessage}>Item already in cart!</p>}
     </div>
   );
 };
