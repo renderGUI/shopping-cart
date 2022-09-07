@@ -10,6 +10,16 @@
   row-gap: 25px;
 }
 
+.loadingItemsContainer {
+  color: config.$contrast;
+  font-size: 1rem;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 // RESPONSIVE DESIGN - DESKTOP
 @media screen and (min-width: 1000px) {
   .itemsContainer {
