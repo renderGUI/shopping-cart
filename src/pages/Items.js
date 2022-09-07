@@ -8,7 +8,9 @@ const Items = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:3001/items");
+      const response = await fetch(
+        "https://items-rendergui.herokuapp.com/items"
+      );
       const data = await response.json();
       setItems(data);
     };
